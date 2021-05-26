@@ -14,7 +14,14 @@ The project uses a microservice architecture. This is to scale the code and keep
 - Github Actions
 - Microk8s
 
-### Repositories
+## Repositories
 - [Backend]
 - [Frontend]
 - [Docs](https://github.com/SieBrum/aci-docs)
+
+## Docs
+The docs contains information regarding the project and files used. The docs contains the following type of documents:
+- Handover document - contains choices made, how to setup and use 3Rd party tools used and code conventions.
+- Kubernetes files used for deployment
+- Architectural documents
+- Github action example yammels
