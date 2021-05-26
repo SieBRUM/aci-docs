@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aci-api-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aci-api-gateway
+  template:
+    metadata:
+      labels:
+        app: aci-api-gateway
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: aci-api-gateway
+        image: siebrum/aci-api-gateway:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 80
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aci-api-gateway
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: aci-api-gateway

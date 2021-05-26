@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aci-user-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aci-user-service
+  template:
+    metadata:
+      labels:
+        app: aci-user-service
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: aci-user-service
+        image: siebrum/aci-user-service:latest
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        - name: aci_db_string
+          valueFrom:
+            secretKeyRef:
+              name: aci-db-string
+              key: connectionstring
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 80
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aci-user-service
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: aci-user-service
