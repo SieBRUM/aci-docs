@@ -38,7 +38,7 @@ The docs contain information regarding the project and files used. The docs cont
 
 ## Getting Started
 ### Frontend
-Start out by cloning the repositories:
+Start out by cloning the repository:
 ```shell
 mkdir ACI && cd ACI
 git clone https://github.com/SieBrum/aci-frontend.git
@@ -52,7 +52,7 @@ After this the application can be started using:
 npm run
 ```
 ### Backend
-Start out by cloning the repositories:
+Start out by cloning the repository:
 ```shell
 cd ACI
 git clone https://github.com/SieBrum/aci-backend.git
