@@ -23,7 +23,7 @@ The project uses a microservice architecture. This is to scale the code and keep
 * Microservices
 * Event streaming
 
-## Deployment
+### Deployment
 * Docker
 * DockerHub
 * Microk8s
@@ -37,9 +37,28 @@ The docs contain information regarding the project and files used. The docs cont
 - Github action example yammels
 
 ## Getting Started
+### Frontend
 Start out by cloning the repositories:
 ```shell
 mkdir ACI && cd ACI
 git clone https://github.com/SieBrum/aci-frontend.git
+```
+After this, install all the packages:
+```shell
+npm install
+```
+After this the application can be started using:
+```shell
+npm run
+```
+### Backend
+Start out by cloning the repositories:
+```shell
+cd ACI
 git clone https://github.com/SieBrum/aci-backend.git
+```
+After this the project can be started using Visual Studio or the dotnet command line. 
+To run multiple services:
+```
+Right click solution -> Startup project -> Mutliple startup projects -> set the desired microservices to 'Start'
 ```
