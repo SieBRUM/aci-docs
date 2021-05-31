@@ -15,8 +15,8 @@ The project uses a microservice architecture. This is to scale the code and keep
 - Microk8s
 
 ### Repositories
-- [Backend]
-- [Frontend]
+- [Backend](https://github.com/SieBrum/aci-backend)
+- [Frontend](https://github.com/SieBrum/aci-frontend)
 - [Docs](https://github.com/SieBrum/aci-docs)
 
 ### Architectural Styles
