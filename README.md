@@ -14,14 +14,32 @@ The project uses a microservice architecture. This is to scale the code and keep
 - Github Actions
 - Microk8s
 
-## Repositories
+### Repositories
 - [Backend]
 - [Frontend]
 - [Docs](https://github.com/SieBrum/aci-docs)
 
+### Architectural Styles
+* Microservices
+* Event streaming
+
+## Deployment
+* Docker
+* DockerHub
+* Microk8s
+* Ubuntu 20.04
+
 ## Docs
-The docs contains information regarding the project and files used. The docs contains the following type of documents:
+The docs contain information regarding the project and files used. The docs contain the following type of documents:
 - Handover document - contains choices made, how to setup and use 3Rd party tools used and code conventions.
 - Kubernetes files used for deployment
 - Architectural documents
 - Github action example yammels
+
+## Getting Started
+Start out by cloning the repositories:
+```shell
+mkdir ACI && cd ACI
+git clone https://github.com/SieBrum/aci-frontend.git
+git clone https://github.com/SieBrum/aci-backend.git
+```
