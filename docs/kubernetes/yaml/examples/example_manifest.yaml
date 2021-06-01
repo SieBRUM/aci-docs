@@ -1,0 +1,58 @@
+# Which version of the Kubernetes API you're using to create this object
+apiVersion: apps/v1
+# What kind of object you want to create. Typically, in a manifest, there is a `Deployment` and a `Service` but there are also other types of objects.
+kind: Deployment
+# Data that helps uniquely identify the object, including a name string, UID, and optional namespace
+metadata:
+  name: aci-example-service
+# What state you desire for the object
+spec:
+  # Amount of pods to start
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aci-example-service
+  template:
+    metadata:
+      labels:
+        app: aci-example-service
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      # All the data and information about the container(s)  
+      containers:
+      - name: aci-example-service
+        # The image to 
+        image: example-docker-user/aci-example-service:latest
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        # Reference to secret and place this secret in the env variables of the container
+        - name: aci_db_string
+          valueFrom:
+            secretKeyRef:
+              name: aci-db-string
+              key: connectionstring
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        # The port to open in the container
+        - containerPort: 80
+          name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aci-example-service
+spec:
+  type: ClusterIP
+  ports:
+  # The port the service is accessed by. Points to the container port, except when the 'targetPort' value is set, than 'targetPort' points to the container port.
+  - port: 80
+  selector:
+    app: aci-example-service
