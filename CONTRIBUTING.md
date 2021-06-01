@@ -204,8 +204,7 @@ Right click solution -> Startup project -> Mutliple startup projects -> set the 
 ```
    
 ## <a name="format"></a> Coding Format
-
-Please read our [code conventions](https://github.com/SieBrum/aci-docs/CODE_CONVENTIONS.md) to ensure code quality and readability.
+Please read our [code conventions](https://github.com/SieBrum/aci-docs/blob/main/CODE_CONVENTIONS.md) to ensure code quality and readability.
 
 ## <a name="moreinfo"></a> More information
 For more information about contribution, design-choices, deployment and code quality, please refer to the folder `docs` in this repository.
