@@ -1,4 +1,4 @@
-# Code Conventions
+# Code conventions
 ## Front-end
 ### Quality assurance
 To assure quality in the front-end TSLint is used. When creating a pull-request the code is automatically linted by the pipeline. You can run the linter locally by using `ng lint`.
